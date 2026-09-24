@@ -630,6 +630,10 @@
   .foot-brand .logo {
     gap: 10px;
   }
+
+  .foot-brand .logo .logo-mark {
+    margin-right:10px;
+  }
 }
 
 /* ============ ③ 动画 ============ */
