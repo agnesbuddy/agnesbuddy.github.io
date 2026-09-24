@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" role="img" aria-label="五套主色与深浅主题示意">
+  <defs>
+    <clipPath id="tw"><rect x="0" y="0" width="800" height="480" rx="16"/></clipPath>
+  </defs>
+  <g clip-path="url(#tw)">
+    <rect width="800" height="480" fill="#f8fafc"/>
+    <g transform="translate(0,90)">
+      <text x="32" y="44" font-family="Segoe UI, PingFang SC, sans-serif" font-size="13" font-weight="700" fill="#0f172a">五套主色</text>
+
+      <!-- 宝蓝 -->
+      <g>
+        <rect x="32" y="60" width="132" height="88" rx="12" fill="#f1f2f6" stroke="#e2e8f0"/>
+        <rect x="32" y="60" width="132" height="26" rx="12" fill="#dfe3ef"/>
+        <circle cx="50" cy="73" r="5" fill="#1d4ed8"/>
+        <rect x="46" y="98" width="76" height="30" rx="8" fill="#1d4ed8"/>
+        <text x="84" y="118" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">宝蓝</text>
+        <circle cx="144" cy="113" r="9" fill="#dfe3ef"/>
+      </g>
+      <!-- 森林绿 -->
+      <g>
+        <rect x="180" y="60" width="132" height="88" rx="12" fill="#f1f6f3" stroke="#e2e8f0"/>
+        <rect x="180" y="60" width="132" height="26" rx="12" fill="#e0ede5"/>
+        <circle cx="198" cy="73" r="5" fill="#166534"/>
+        <rect x="194" y="98" width="76" height="30" rx="8" fill="#166534"/>
+        <text x="232" y="118" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">森林绿</text>
+        <circle cx="292" cy="113" r="9" fill="#e0ede5"/>
+      </g>
+      <!-- 深紫 -->
+      <g>
+        <rect x="328" y="60" width="132" height="88" rx="12" fill="#f3f1f6" stroke="#e2e8f0"/>
+        <rect x="328" y="60" width="132" height="26" rx="12" fill="#e5e0ee"/>
+        <circle cx="346" cy="73" r="5" fill="#6d28d9"/>
+        <rect x="342" y="98" width="76" height="30" rx="8" fill="#6d28d9"/>
+        <text x="380" y="118" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">深紫</text>
+        <circle cx="440" cy="113" r="9" fill="#e5e0ee"/>
+      </g>
+      <!-- 石墨 -->
+      <g>
+        <rect x="476" y="60" width="132" height="88" rx="12" fill="#f3f3f4" stroke="#e2e8f0"/>
+        <rect x="476" y="60" width="132" height="26" rx="12" fill="#e4e6ea"/>
+        <circle cx="494" cy="73" r="5" fill="#1f2937"/>
+        <rect x="490" y="98" width="76" height="30" rx="8" fill="#1f2937"/>
+        <text x="528" y="118" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">石墨</text>
+        <circle cx="588" cy="113" r="9" fill="#e4e6ea"/>
+      </g>
+      <!-- 洋红 -->
+      <g>
+        <rect x="624" y="60" width="132" height="88" rx="12" fill="#f6f1f3" stroke="#e2e8f0"/>
+        <rect x="624" y="60" width="132" height="26" rx="12" fill="#ede0e6"/>
+        <circle cx="642" cy="73" r="5" fill="#d5347a"/>
+        <rect x="638" y="98" width="76" height="30" rx="8" fill="#d5347a"/>
+        <text x="676" y="118" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">洋红</text>
+        <circle cx="736" cy="113" r="9" fill="#ede0e6"/>
+      </g>
+
+      <!-- 深浅两版界面 -->
+      <text x="32" y="188" font-family="Segoe UI, PingFang SC, sans-serif" font-size="13" font-weight="700" fill="#0f172a">同一套界面 · 浅色与深色</text>
+
+      <!-- 浅色小窗 -->
+      <rect x="32" y="204" width="356" height="76" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      <rect x="32" y="204" width="88" height="76" rx="12" fill="#dfe3ef"/>
+      <rect x="46" y="220" width="60" height="7" rx="3.5" fill="#1d4ed8"/>
+      <rect x="46" y="234" width="44" height="7" rx="3.5" fill="#94a3b8"/>
+      <rect x="46" y="248" width="52" height="7" rx="3.5" fill="#94a3b8"/>
+      <rect x="140" y="220" width="140" height="12" rx="6" fill="#e2e8f0"/>
+      <rect x="140" y="242" width="216" height="12" rx="6" fill="#eef2fe"/>
+      <rect x="140" y="262" width="180" height="12" rx="6" fill="#e2e8f0"/>
+      <text x="392" y="252" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#64748b" text-anchor="end">浅色</text>
+
+      <!-- 深色小窗 -->
+      <rect x="412" y="204" width="356" height="76" rx="12" fill="#0b1220" stroke="#27324f"/>
+      <rect x="412" y="204" width="88" height="76" rx="12" fill="#16203a"/>
+      <rect x="426" y="220" width="60" height="7" rx="3.5" fill="#4b7bf5"/>
+      <rect x="426" y="234" width="44" height="7" rx="3.5" fill="#64748b"/>
+      <rect x="426" y="248" width="52" height="7" rx="3.5" fill="#64748b"/>
+      <rect x="520" y="220" width="140" height="12" rx="6" fill="#27324f"/>
+      <rect x="520" y="242" width="216" height="12" rx="6" fill="#16203a"/>
+      <rect x="520" y="262" width="180" height="12" rx="6" fill="#27324f"/>
+      <text x="772" y="252" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">深色</text>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="799" height="479" rx="16" fill="none" stroke="#e2e8f0"/>
+</svg>

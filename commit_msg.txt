@@ -1,0 +1,7 @@
+chore(官网): 初始化 AgnesBuddy 官网工程（Vite + React + Tailwind，多入口 MPA）
+
+- 由 agnes-studio 的 server/agnesbuddy 纯静态站重构而来，8 个页面内容与文案逐字一致
+- 设计令牌沿用同一套色值（浅/深两套跟随系统），映射进 tailwind.config.js
+- 新增 .github/workflows/deploy.yml：push 到 main 自动构建并发布到 GitHub Pages
+- public/CNAME 固定 agnesbuddy.com，防止自定义域名被重置
+- 全站断点统一 860px，与原静态站逐像素对齐

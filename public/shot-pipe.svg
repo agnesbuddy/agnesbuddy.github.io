@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" role="img" aria-label="视频流水线示意：多个任务按顺序自动执行，每步状态可见">
+  <defs>
+    <clipPath id="pw"><rect x="0" y="0" width="800" height="480" rx="16"/></clipPath>
+    <linearGradient id="pMain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="pBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#93b4fb"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#pw)">
+    <rect width="800" height="480" fill="#ffffff"/>
+    <rect width="800" height="38" fill="#f8fafc"/>
+    <line x1="0" y1="38" x2="800" y2="38" stroke="#e8edf4"/>
+    <circle cx="24" cy="19" r="5" fill="#e2e8f0"/>
+    <circle cx="44" cy="19" r="5" fill="#e2e8f0"/>
+    <circle cx="64" cy="19" r="5" fill="#e2e8f0"/>
+
+    <!-- 页头 -->
+    <rect x="32" y="62" width="20" height="20" rx="6" fill="url(#pMain)"/>
+    <text x="60" y="78" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#0f172a">视频流水线</text>
+    <rect x="164" y="60" width="76" height="26" rx="13" fill="#f1f5f9"/>
+    <text x="202" y="77" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#475569" text-anchor="middle">＋ 新建</text>
+
+    <!-- 任务卡 1：运行中 -->
+    <rect x="32" y="106" width="736" height="124" rx="14" fill="#ffffff" stroke="#93b4fb" stroke-width="1.5"/>
+    <rect x="32" y="106" width="4" height="124" rx="2" fill="url(#pMain)"/>
+    <text x="56" y="138" font-family="Segoe UI, PingFang SC, sans-serif" font-size="14.5" font-weight="600" fill="#0f172a">夏日饮品 · 三镜头成片</text>
+    <rect x="700" y="120" width="52" height="22" rx="11" fill="#eef2fe"/>
+    <text x="726" y="135" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" fill="#1a3fae" text-anchor="middle">运行中</text>
+    <!-- 步骤 -->
+    <circle cx="66" cy="172" r="9" fill="url(#pMain)"/>
+    <path d="M62 172l3 3 5-6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="84" y="177" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#334155">写分镜</text>
+    <circle cx="176" cy="172" r="9" fill="url(#pMain)"/>
+    <path d="M172 172l3 3 5-6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="194" y="177" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#334155">生成图片</text>
+    <circle cx="306" cy="172" r="9" fill="#ffffff" stroke="#3b82f6" stroke-width="2.5"/>
+    <circle cx="306" cy="172" r="3" fill="#3b82f6"/>
+    <text x="324" y="177" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#1a3fae" font-weight="600">图生视频</text>
+    <circle cx="446" cy="172" r="9" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="464" y="177" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#94a3b8">合片导出</text>
+    <line x1="75" y1="172" x2="167" y2="172" stroke="#3b82f6" stroke-width="2.5"/>
+    <line x1="185" y1="172" x2="297" y2="172" stroke="#3b82f6" stroke-width="2.5"/>
+    <line x1="315" y1="172" x2="437" y2="172" stroke="#e2e8f0" stroke-width="2.5"/>
+
+    <!-- 任务卡 2：已完成 -->
+    <rect x="32" y="248" width="736" height="112" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="32" y="248" width="4" height="112" rx="2" fill="#10b981"/>
+    <text x="56" y="278" font-family="Segoe UI, PingFang SC, sans-serif" font-size="14.5" font-weight="600" fill="#0f172a">品牌开场 15 秒</text>
+    <rect x="700" y="262" width="52" height="22" rx="11" fill="#e8f7f0"/>
+    <text x="726" y="277" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" fill="#047857" text-anchor="middle">已完成</text>
+    <circle cx="66" cy="312" r="9" fill="#10b981"/>
+    <path d="M62 312l3 3 5-6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="84" y="317" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#334155">写分镜</text>
+    <circle cx="176" cy="312" r="9" fill="#10b981"/>
+    <path d="M172 312l3 3 5-6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="194" y="317" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#334155">生成图片</text>
+    <circle cx="306" cy="312" r="9" fill="#10b981"/>
+    <path d="M302 312l3 3 5-6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="324" y="317" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#334155">图生视频</text>
+    <circle cx="446" cy="312" r="9" fill="#10b981"/>
+    <path d="M442 312l3 3 5-6" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="464" y="317" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#334155">合片导出</text>
+    <line x1="75" y1="312" x2="167" y2="312" stroke="#10b981" stroke-width="2.5"/>
+    <line x1="185" y1="312" x2="297" y2="312" stroke="#10b981" stroke-width="2.5"/>
+    <line x1="315" y1="312" x2="437" y2="312" stroke="#10b981" stroke-width="2.5"/>
+    <!-- 产物缩略 -->
+    <rect x="580" y="292" width="52" height="40" rx="8" fill="#e2e8f0"/>
+    <path d="M589 322l12-14 9 10 7-7 12 11z" fill="#94a3b8"/>
+    <rect x="640" y="292" width="52" height="40" rx="8" fill="#e2e8f0"/>
+    <circle cx="666" cy="312" r="10" fill="#94a3b8"/>
+    <path d="M663 308l8 4-8 4z" fill="#ffffff"/>
+
+    <!-- 任务卡 3：失败 -->
+    <rect x="32" y="378" width="736" height="80" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="32" y="378" width="4" height="80" rx="2" fill="#ef4444"/>
+    <text x="56" y="408" font-family="Segoe UI, PingFang SC, sans-serif" font-size="14.5" font-weight="600" fill="#0f172a">秋冬上新预告</text>
+    <rect x="676" y="392" width="76" height="22" rx="11" fill="#fdecec"/>
+    <text x="714" y="407" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" fill="#b91c1c" text-anchor="middle">第 2 步失败</text>
+    <text x="56" y="438" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#94a3b8">参考图尺寸不足 512，请更换素材后重跑</text>
+  </g>
+  <rect x="0.5" y="0.5" width="799" height="479" rx="16" fill="none" stroke="#e2e8f0"/>
+</svg>

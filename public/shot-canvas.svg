@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" role="img" aria-label="无限画布示意：图片、视频、文字节点随意排布并用连线表达关系">
+  <defs>
+    <clipPath id="cw"><rect x="0" y="0" width="800" height="480" rx="16"/></clipPath>
+    <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="gC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#cbd5e1" opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <g clip-path="url(#cw)">
+    <rect width="800" height="480" fill="#f8fafc"/>
+    <rect width="800" height="480" fill="url(#dots)"/>
+
+    <!-- 顶部工具条 -->
+    <rect x="24" y="22" width="336" height="34" rx="17" fill="#0f172a"/>
+    <g font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#ffffff">
+      <text x="44" y="44">切换</text>
+      <text x="92" y="44">导入</text>
+      <text x="140" y="44">导出</text>
+      <text x="188" y="44">整理</text>
+      <text x="236" y="44">适配视图</text>
+      <text x="308" y="44">保存</text>
+    </g>
+    <line x1="78" y1="30" x2="78" y2="48" stroke="#475569"/>
+    <line x1="126" y1="30" x2="126" y2="48" stroke="#475569"/>
+    <line x1="174" y1="30" x2="174" y2="48" stroke="#475569"/>
+    <line x1="222" y1="30" x2="222" y2="48" stroke="#475569"/>
+    <line x1="292" y1="30" x2="292" y2="48" stroke="#475569"/>
+
+    <!-- 连线 -->
+    <g stroke="#93b4fb" stroke-width="2.5" fill="none">
+      <path d="M286 200 C 360 200, 372 168, 452 168"/>
+      <path d="M286 214 C 356 214, 372 292, 452 292"/>
+      <path d="M596 236 C 640 236, 646 178, 668 178"/>
+    </g>
+
+    <!-- 节点 A：文字 -->
+    <rect x="120" y="150" width="166" height="118" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="136" y="166" width="26" height="26" rx="8" fill="url(#gC)"/>
+    <text x="172" y="184" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12.5" font-weight="600" fill="#334155">开场旁白</text>
+    <rect x="136" y="204" width="134" height="7" rx="3.5" fill="#cbd5e1"/>
+    <rect x="136" y="221" width="112" height="7" rx="3.5" fill="#cbd5e1"/>
+    <rect x="136" y="238" width="126" height="7" rx="3.5" fill="#cbd5e1"/>
+    <circle cx="136" cy="150" r="5" fill="#ffffff" stroke="#93b4fb" stroke-width="2"/>
+    <circle cx="286" cy="209" r="5" fill="#ffffff" stroke="#93b4fb" stroke-width="2"/>
+
+    <!-- 节点 B：图片 -->
+    <rect x="452" y="112" width="144" height="112" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="460" y="120" width="128" height="76" rx="8" fill="url(#gA)"/>
+    <path d="M472 186l24-26 18 20 13-13 21 19z" fill="#ffffff" opacity="0.85"/>
+    <circle cx="540" cy="138" r="8" fill="#ffffff" opacity="0.8"/>
+    <rect x="460" y="202" width="86" height="7" rx="3.5" fill="#cbd5e1"/>
+    <circle cx="452" cy="168" r="5" fill="#ffffff" stroke="#93b4fb" stroke-width="2"/>
+
+    <!-- 节点 C：视频 -->
+    <rect x="452" y="236" width="144" height="112" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="460" y="244" width="128" height="76" rx="8" fill="url(#gB)"/>
+    <circle cx="524" cy="282" r="18" fill="#ffffff" opacity="0.9"/>
+    <path d="M519 274l14 8-14 8z" fill="#0f172a"/>
+    <rect x="460" y="326" width="72" height="7" rx="3.5" fill="#cbd5e1"/>
+    <circle cx="452" cy="292" r="5" fill="#ffffff" stroke="#93b4fb" stroke-width="2"/>
+    <circle cx="596" cy="292" r="5" fill="#ffffff" stroke="#93b4fb" stroke-width="2"/>
+
+    <!-- 节点 D：待生成 -->
+    <rect x="668" y="140" width="104" height="92" rx="14" fill="#eef2fe" stroke="#93b4fb" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <rect x="686" y="164" width="68" height="7" rx="3.5" fill="#93b4fb"/>
+    <rect x="686" y="181" width="52" height="7" rx="3.5" fill="#c7d2fe"/>
+    <text x="720" y="212" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" fill="#1a3fae" text-anchor="middle">生成中…</text>
+    <circle cx="668" cy="178" r="5" fill="#ffffff" stroke="#93b4fb" stroke-width="2"/>
+
+    <!-- 右下缩放控件 -->
+    <rect x="682" y="406" width="92" height="30" rx="15" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <path d="M700 421h24M712 409v24" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+    <text x="740" y="426" font-family="Segoe UI, PingFang SC, sans-serif" font-size="12" fill="#64748b">72%</text>
+  </g>
+  <rect x="0.5" y="0.5" width="799" height="479" rx="16" fill="none" stroke="#e2e8f0"/>
+</svg>

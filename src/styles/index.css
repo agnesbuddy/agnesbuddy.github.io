@@ -1,0 +1,763 @@
+/* AgnesBuddy 官网样式入口
+   ------------------------------------------------------------------
+   三层结构：
+     base       —— 设计令牌（CSS 变量，浅/深两套）+ 基础元素样式
+     components —— 「一处在多处复用」的语义块（卡片、步骤、正文、导航…）
+     utilities  —— Tailwind 原子类，页面里做微调用
+
+   为什么令牌值是 CSS 变量而不是写死色值：
+     深浅主题靠「重定义变量」切换，组件里一律写 bg-n-0 / text-n-700 / bg-brand
+     这类语义名，换肤只动下面两处 :root，组件一行都不用改。
+     色值与客户端 docs/COLORS.md 同一套。
+
+   注：CSS 变量色值不支持 Tailwind 的 `/50` 透明度修饰符，
+   需要半透明时直接用原生 CSS（比如 .site-head 的 color-mix）。
+   ------------------------------------------------------------------ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ ① 令牌 ============ */
+@layer base {
+  :root {
+    --brand: #1d4ed8;
+    --brand-dark: #1a3fae;
+    --brand-bg: #eef2fe;
+    --brand-bg-2: #dfe5fb;
+
+    --n-0: #ffffff;
+    --n-50: #f8fafc;
+    --n-100: #f1f5f9;
+    --n-150: #e8edf4;
+    --n-200: #e2e8f0;
+    --n-300: #cbd5e1;
+    --n-400: #94a3b8;
+    --n-500: #64748b;
+    --n-600: #475569;
+    --n-700: #334155;
+    --n-800: #1e293b;
+    --n-900: #0f172a;
+
+    --radius: 14px;
+    --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
+  }
+
+  /* 深色跟随系统：不提供手动开关，与旧站行为一致 */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --n-0: #0b1220;
+      --n-50: #0f172a;
+      --n-100: #16203a;
+      --n-150: #1e2a48;
+      --n-200: #27324f;
+      --n-300: #3c4a6b;
+      --n-400: #64748b;
+      --n-500: #94a3b8;
+      --n-600: #b3bfd1;
+      --n-700: #cbd5e1;
+      --n-800: #e2e8f0;
+      --n-900: #f1f5f9;
+
+      --brand: #4b7bf5;
+      --brand-dark: #93b4fb;
+      --brand-bg: #16203a;
+      --brand-bg-2: #1e2a48;
+
+      --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--n-0);
+    color: var(--n-700);
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tailwind preflight 会把链接设成继承色，这里恢复品牌色 */
+  a {
+    color: var(--brand);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* preflight 把标题/段落 margin 归零、列表符号去掉，
+     正文页（.doc）需要把段落间距与列表符号恢复回来，否则会全部挤在一起。
+     下面 .doc 段落/列表的具体间距在 components 层补齐。 */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    font-weight: 700;
+  }
+}
+
+/* ============ ② 语义块 ============ */
+@layer components {
+  /* ---------- 布局 ---------- */
+  .wrap {
+    width: min(1080px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  /* ---------- 顶栏 ---------- */
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--n-0) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--n-150);
+  }
+  .head-in {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 62px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 700;
+    color: var(--n-900);
+    font-size: 16.5px;
+  }
+  .logo:hover {
+    text-decoration: none;
+  }
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .nav {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+  }
+  .nav a {
+    position: relative;
+    padding: 6px 11px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--n-600);
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .nav a:hover {
+    background: var(--n-100);
+    color: var(--n-900);
+    text-decoration: none;
+  }
+  .nav a.on {
+    background: var(--brand-bg);
+    color: var(--brand-dark);
+    font-weight: 600;
+  }
+  .nav a.on::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    right: 11px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--brand);
+    border-radius: 2px;
+  }
+  .nav-toggle {
+    display: none;
+    margin-left: auto;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 68px 0 44px;
+    text-align: center;
+  }
+  /* 顶部品牌色光晕：纯装饰，不上交互 */
+  .hero::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -160px;
+    width: 1000px;
+    height: 460px;
+    transform: translateX(-50%);
+    background: radial-gradient(50% 60% at 50% 50%, var(--brand-bg), transparent 72%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 999px;
+    background: var(--brand-bg);
+    color: var(--brand-dark);
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .hero h1 {
+    margin: 16px 0 12px;
+    font-size: 40px;
+    line-height: 1.25;
+    color: var(--n-900);
+    letter-spacing: -0.4px;
+  }
+  .hero p.sub {
+    margin: 0 auto;
+    max-width: 660px;
+    color: var(--n-600);
+    font-size: 16.5px;
+  }
+  .hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+  }
+  .hero-shot {
+    position: relative;
+    margin: 36px auto 0;
+    max-width: 880px;
+  }
+
+  /* ---------- 按钮 ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  .btn:hover {
+    text-decoration: none;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn.primary {
+    background: var(--brand);
+    color: #fff;
+    box-shadow: 0 8px 20px -10px var(--brand);
+  }
+  .btn.primary:hover {
+    background: var(--brand-dark);
+  }
+  .btn.ghost {
+    background: var(--n-100);
+    color: var(--n-800);
+  }
+  .btn.ghost:hover {
+    background: var(--n-200);
+  }
+
+  /* ---------- 区块 ---------- */
+  .section {
+    padding: 46px 0;
+  }
+  .section.alt {
+    background: var(--n-50);
+    border-top: 1px solid var(--n-150);
+    border-bottom: 1px solid var(--n-150);
+  }
+  .sec-head {
+    margin-bottom: 26px;
+  }
+  .sec-head.center {
+    text-align: center;
+  }
+  .sec-head h2 {
+    margin: 0 0 6px;
+    font-size: 25px;
+    color: var(--n-900);
+  }
+  .sec-head p {
+    margin: 0;
+    color: var(--n-500);
+    font-size: 14.5px;
+  }
+
+  /* ---------- 栅格与卡片 ---------- */
+  .grid.g2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid.g3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 20px;
+    border: 1px solid var(--n-150);
+    border-radius: var(--radius);
+    background: var(--n-0);
+    box-shadow: var(--shadow);
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.28s ease,
+      border-color 0.28s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px -16px rgba(15, 23, 42, 0.3);
+    border-color: var(--n-200);
+  }
+  .card h3 {
+    margin: 12px 0 8px;
+    font-size: 16.5px;
+    color: var(--n-900);
+  }
+  .card h3:first-child {
+    margin-top: 0;
+  }
+  .card p {
+    margin: 0;
+    color: var(--n-600);
+    font-size: 14.5px;
+  }
+  .card ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    list-style: disc;
+    color: var(--n-600);
+    font-size: 14px;
+  }
+  .card li {
+    margin-bottom: 4px;
+  }
+
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--brand-bg);
+    color: var(--brand-dark);
+  }
+
+  /* ---------- 步骤 ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    counter-reset: step;
+  }
+  .step {
+    padding: 18px;
+    border: 1px dashed var(--n-200);
+    border-radius: var(--radius);
+    background: var(--n-0);
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .step:hover {
+    border-color: var(--brand);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .step h4 {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+    color: var(--n-900);
+  }
+  .step p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--n-600);
+  }
+
+  /* ---------- 表格 ---------- */
+  .doc table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 18px;
+    font-size: 14px;
+  }
+  .doc th,
+  .doc td {
+    padding: 9px 12px;
+    border: 1px solid var(--n-150);
+    text-align: left;
+    vertical-align: top;
+  }
+  .doc th {
+    background: var(--n-100);
+    color: var(--n-800);
+    font-weight: 600;
+  }
+  .doc tbody tr:nth-child(even) {
+    background: var(--n-50);
+  }
+
+  /* ---------- 正文（使用说明 / 条款 / 隐私…）---------- */
+  .doc {
+    max-width: 820px;
+  }
+  .doc h2 {
+    margin: 34px 0 10px;
+    font-size: 21px;
+    color: var(--n-900);
+  }
+  .doc h2:first-child {
+    margin-top: 0;
+  }
+  .doc h3 {
+    margin: 22px 0 8px;
+    font-size: 17px;
+    color: var(--n-800);
+  }
+  .doc p,
+  .doc li {
+    color: var(--n-600);
+  }
+  /* 段落间距：preflight 归零后必须显式给回，否则整页变成一大坨 */
+  .doc p {
+    margin: 0 0 15px;
+  }
+  .doc ul,
+  .doc ol {
+    margin: 0 0 15px;
+    padding-left: 22px;
+  }
+  .doc ul {
+    list-style: disc;
+  }
+  .doc ol {
+    list-style: decimal;
+  }
+  .doc li {
+    margin-bottom: 6px;
+  }
+  .doc code {
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: var(--n-100);
+    font-family: 'JetBrains Mono', Consolas, Menlo, monospace;
+    font-size: 13px;
+    color: var(--n-800);
+  }
+  .doc .meta {
+    margin-bottom: 4px;
+    color: var(--n-400);
+    font-size: 13px;
+  }
+
+  .note {
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-left: 3px solid var(--brand);
+    background: var(--brand-bg);
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: var(--n-700);
+  }
+
+  /* ---------- 折叠问答 ---------- */
+  .doc details,
+  .faq-list details {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 1px solid var(--n-150);
+    border-radius: 10px;
+    background: var(--n-0);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .doc details[open],
+  .faq-list details[open] {
+    border-color: var(--brand);
+    box-shadow: 0 8px 22px -14px rgba(15, 23, 42, 0.25);
+  }
+  .doc details summary,
+  .faq-list details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--n-800);
+    font-size: 15px;
+  }
+  .doc details summary::marker,
+  .faq-list details summary::marker {
+    color: var(--brand);
+  }
+  .doc details p,
+  .faq-list details p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: var(--n-600);
+  }
+
+  /* ---------- 界面示意图 ---------- */
+  .shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--n-0);
+    border: 1px solid var(--n-150);
+    border-radius: var(--radius);
+    box-shadow: 0 24px 56px -26px rgba(15, 23, 42, 0.42);
+  }
+  .shot-sm {
+    border-radius: 10px;
+    box-shadow: 0 10px 22px -12px rgba(15, 23, 42, 0.32);
+  }
+  /* 图注与 figure 内图片间距：沿用旧站的**元素选择器**。
+     页面里没给 figcaption 加类，写成 .caption 之类的类名会没人匹配，
+     结果就是图注掉回默认字号和继承色。 */
+  figcaption {
+    font-size: 12.5px;
+    color: var(--n-400);
+  }
+  figure .shot {
+    margin-bottom: 8px;
+  }
+  .doc figure {
+    margin: 22px 0 28px;
+  }
+  .shot-pair,
+  .shot-trio {
+    display: grid;
+    gap: 16px;
+  }
+  .shot-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .shot-trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* 卡片示意图统一 5:3（800×480），保证同排各卡标题起在同一水平线上。
+     以后换成真截图时，保持 5:3（或让这里比例一致）就不会错位。 */
+  .card-shot {
+    margin: 0 0 12px;
+    aspect-ratio: 800 / 480;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* ---------- 页脚 ---------- */
+  .site-foot {
+    padding: 54px 0 38px;
+    border-top: 1px solid var(--n-150);
+    background: var(--n-50);
+  }
+  .foot-in {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .foot-col {
+    min-width: 116px;
+  }
+  .foot-in .foot-col:first-child {
+    flex: 1 1 280px;
+  }
+  .foot-col h5 {
+    margin: 0 0 13px;
+    font-size: 13.5px;
+    color: var(--n-900);
+    letter-spacing: 0.3px;
+  }
+  .foot-col a {
+    display: block;
+    padding: 5px 0;
+    font-size: 13.5px;
+    color: var(--n-500);
+    line-height: 1.65;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+  .foot-col a:hover {
+    color: var(--brand);
+    padding-left: 3px;
+    text-decoration: none;
+  }
+  .foot-copy {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--n-150);
+    font-size: 13px;
+    color: var(--n-400);
+    line-height: 1.75;
+  }
+  .foot-brand p {
+    margin: 12px 0 0;
+    font-size: 13.5px;
+    color: var(--n-500);
+    max-width: 340px;
+    line-height: 1.75;
+  }
+}
+
+/* ============ ③ 动画 ============ */
+@layer utilities {
+  /* Hero 进场：错峰淡入上浮 */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .hero .tag {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    animation: fadeUp 0.6s ease 0.08s both;
+  }
+  .hero p.sub {
+    animation: fadeUp 0.6s ease 0.16s both;
+  }
+  .hero-btns {
+    animation: fadeUp 0.6s ease 0.24s both;
+  }
+  .hero-shot {
+    animation: fadeUp 0.7s ease 0.32s both;
+  }
+
+  @keyframes shotIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes capIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .shot-trio figure .shot,
+  .shot-pair figure .shot {
+    animation: shotIn 0.7s ease both;
+  }
+  .shot-trio figure:nth-child(2) .shot {
+    animation-delay: 0.1s;
+  }
+  .shot-trio figure:nth-child(3) .shot {
+    animation-delay: 0.2s;
+  }
+  .shot-trio figcaption,
+  .shot-pair figcaption {
+    animation: capIn 0.6s ease 0.5s both;
+  }
+
+  /* 滚动进场：由 Reveal 组件按需加 .in。
+     没有 IntersectionObserver 时组件会跳过加 .reveal，内容不会消失。 */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.7, 0.3, 1),
+      transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============ 响应式（与旧站同一断点 860px） ============ */
+@media (max-width: 860px) {
+  .grid.g3,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .grid.g2 {
+    grid-template-columns: 1fr;
+  }
+  .shot-pair,
+  .shot-trio {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .wrap {
+    width: calc(100% - 36px);
+  }
+  .nav {
+    display: none;
+  }
+  .nav.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    padding: 10px 18px 16px;
+    background: var(--n-0);
+    border-bottom: 1px solid var(--n-150);
+  }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--n-200);
+    border-radius: 8px;
+    background: var(--n-0);
+  }
+}
+
+/* 尊重「减少动态效果」系统偏好 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

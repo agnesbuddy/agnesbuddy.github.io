@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480" role="img" aria-label="资产库示意：图片与视频素材按瀑布流归档，可直接取用">
+  <defs>
+    <clipPath id="lw"><rect x="0" y="0" width="800" height="480" rx="16"/></clipPath>
+    <linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#93b4fb"/><stop offset="1" stop-color="#3b82f6"/></linearGradient>
+    <linearGradient id="l2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+    <linearGradient id="l3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8b4fe"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+    <linearGradient id="l4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fda4af"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+    <linearGradient id="l5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcd34d"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+  </defs>
+
+  <g clip-path="url(#lw)">
+    <rect width="800" height="480" fill="#ffffff"/>
+    <rect width="800" height="38" fill="#f8fafc"/>
+    <line x1="0" y1="38" x2="800" y2="38" stroke="#e8edf4"/>
+    <circle cx="24" cy="19" r="5" fill="#e2e8f0"/>
+    <circle cx="44" cy="19" r="5" fill="#e2e8f0"/>
+    <circle cx="64" cy="19" r="5" fill="#e2e8f0"/>
+
+    <text x="32" y="76" font-family="Segoe UI, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="#0f172a">资产库</text>
+    <rect x="112" y="60" width="72" height="26" rx="13" fill="#f1f5f9"/>
+    <text x="148" y="77" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">全部</text>
+    <rect x="192" y="60" width="72" height="26" rx="13" fill="#eef2fe"/>
+    <text x="228" y="77" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11.5" fill="#1a3fae" text-anchor="middle">图片</text>
+    <rect x="272" y="60" width="72" height="26" rx="13" fill="#f1f5f9"/>
+    <text x="308" y="77" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">视频</text>
+    <rect x="662" y="60" width="106" height="26" rx="13" fill="#0f172a"/>
+    <text x="715" y="77" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11.5" fill="#ffffff" text-anchor="middle">导入素材</text>
+
+    <!-- 瀑布流：四列 -->
+    <g>
+      <!-- 列 1 -->
+      <rect x="32" y="104" width="172" height="150" rx="12" fill="url(#l1)"/>
+      <path d="M46 236l34-40 26 29 20-20 30 31z" fill="#ffffff" opacity="0.85"/>
+      <circle cx="178" cy="128" r="10" fill="#ffffff" opacity="0.75"/>
+      <rect x="32" y="266" width="172" height="118" rx="12" fill="url(#l4)"/>
+      <path d="M46 366l34-38 26 27 20-19 30 30z" fill="#ffffff" opacity="0.85"/>
+
+      <!-- 列 2 -->
+      <rect x="218" y="104" width="172" height="118" rx="12" fill="url(#l2)"/>
+      <path d="M232 204l34-36 26 26 20-18 30 28z" fill="#ffffff" opacity="0.85"/>
+      <rect x="218" y="234" width="172" height="150" rx="12" fill="url(#l5)"/>
+      <circle cx="304" cy="309" r="24" fill="#ffffff" opacity="0.9"/>
+      <path d="M297 300l18 9-18 9z" fill="#0f172a"/>
+
+      <!-- 列 3 -->
+      <rect x="404" y="104" width="172" height="186" rx="12" fill="url(#l3)"/>
+      <path d="M418 268l38-46 30 33 22-22 34 35z" fill="#ffffff" opacity="0.85"/>
+      <rect x="404" y="302" width="172" height="82" rx="12" fill="#e2e8f0"/>
+      <rect x="422" y="326" width="136" height="8" rx="4" fill="#cbd5e1"/>
+      <rect x="422" y="344" width="104" height="8" rx="4" fill="#cbd5e1"/>
+
+      <!-- 列 4 -->
+      <rect x="590" y="104" width="178" height="130" rx="12" fill="#e2e8f0"/>
+      <circle cx="679" cy="169" r="26" fill="#94a3b8"/>
+      <path d="M671 158l20 11-20 11z" fill="#ffffff"/>
+      <rect x="590" y="246" width="178" height="138" rx="12" fill="url(#l1)"/>
+      <path d="M604 366l36-42 28 30 22-21 32 33z" fill="#ffffff" opacity="0.85"/>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="799" height="479" rx="16" fill="none" stroke="#e2e8f0"/>
+</svg>
