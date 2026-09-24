@@ -10,7 +10,7 @@ export default function SiteHeader() {
     <header className="site-head">
       <div className="wrap head-in">
         <a className="logo" href="index.html">
-          <span className="logo-mark">AG</span>
+          <span className="logo-mark">AB</span>
           AgnesBuddy
         </a>
 

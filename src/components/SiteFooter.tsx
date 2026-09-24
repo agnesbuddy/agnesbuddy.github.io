@@ -8,7 +8,7 @@ export default function SiteFooter() {
         <div className="foot-in">
           <div className="foot-col foot-brand">
             <a className="logo" href="index.html">
-              <span className="logo-mark">AG</span>
+              <span className="logo-mark">AB</span>
               AgnesBuddy
             </a>
             <p>把 AI 对话、素材管理、短剧创作、无限画布与视频流水线收进一个桌面工作台。</p>
@@ -26,10 +26,7 @@ export default function SiteFooter() {
           ))}
         </div>
 
-        <div className="foot-copy">
-          版权所有 2026 uscms. 保留所有权利。本软件按「现状」提供，详见
-          <a href="disclaimer.html">免责声明</a>。
-        </div>
+        <div className="foot-copy">健康第一</div>
       </div>
     </footer>
   )

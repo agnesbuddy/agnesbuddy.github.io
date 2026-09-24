@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 - 页面未找到 · AgnesBuddy</title>
+    <meta name="description" content="你访问的页面不存在或已移动。" />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://agnesbuddy.com/404.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="404 - 页面未找到 · AgnesBuddy" />
+    <meta property="og:description" content="你访问的页面不存在或已移动。" />
+    <meta property="og:url" content="https://agnesbuddy.com/404.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --brand: #1d4ed8;
+        --brand-dark: #1a3fae;
+        --brand-bg: #eef2fe;
+        --brand-bg-2: #dfe5fb;
+        --n-0: #ffffff;
+        --n-50: #f8fafc;
+        --n-100: #f1f5f9;
+        --n-150: #e8edf4;
+        --n-200: #e2e8f0;
+        --n-300: #cbd5e1;
+        --n-400: #94a3b8;
+        --n-500: #64748b;
+        --n-600: #475569;
+        --n-700: #334155;
+        --n-800: #1e293b;
+        --n-900: #0f172a;
+        --radius: 14px;
+        --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --n-0: #0b1220;
+          --n-50: #0f172a;
+          --n-100: #16203a;
+          --n-150: #1e2a48;
+          --n-200: #27324f;
+          --n-300: #3c4a6b;
+          --n-400: #64748b;
+          --n-500: #94a3b8;
+          --n-600: #b3bfd1;
+          --n-700: #cbd5e1;
+          --n-800: #e2e8f0;
+          --n-900: #f1f5f9;
+          --brand: #4b7bf5;
+          --brand-dark: #93b4fb;
+          --brand-bg: #16203a;
+          --brand-bg-2: #1e2a48;
+          --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--n-0);
+        color: var(--n-700);
+        font-size: 15px;
+        line-height: 1.75;
+        font-family: "Segoe UI", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a { color: var(--brand); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; }
+      .wrap { width: min(1080px, calc(100% - 48px)); margin: 0 auto; }
+
+      /* 顶栏（与官网同源） */
+      .site-head {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in srgb, var(--n-0) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--n-150);
+      }
+      .head-in { display: flex; align-items: center; gap: 16px; height: 62px; }
+      .logo { display: flex; align-items: center; gap: 9px; font-weight: 700; color: var(--n-900); font-size: 16.5px; }
+      .logo:hover { text-decoration: none; }
+      .logo-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        background: var(--brand);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+      .nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+      .nav a { padding: 8px 12px; color: var(--n-600); border-radius: 8px; font-size: 14px; }
+      .nav a:hover { color: var(--brand); background: var(--n-100); text-decoration: none; }
+
+      /* 404 主体 */
+      .err-main { min-height: calc(100vh - 62px - 240px); display: flex; align-items: center; justify-content: center; padding: 64px 0; }
+      .err-box { text-align: center; max-width: 520px; }
+      .err-code { font-size: 96px; line-height: 1; font-weight: 800; color: var(--brand); letter-spacing: 2px; }
+      .err-title { font-size: 24px; color: var(--n-900); margin: 18px 0 10px; }
+      .err-text { color: var(--n-500); margin: 0 auto 28px; max-width: 420px; }
+      .err-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+      .btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-size: 14.5px; font-weight: 600; }
+      .btn-primary { background: var(--brand); color: #fff; }
+      .btn-primary:hover { background: var(--brand-dark); text-decoration: none; }
+      .btn-ghost { background: var(--n-100); color: var(--n-800); }
+      .btn-ghost:hover { background: var(--n-200); text-decoration: none; }
+
+      /* 页脚（与官网同源） */
+      .site-foot { padding: 54px 0 38px; border-top: 1px solid var(--n-150); background: var(--n-50); }
+      .foot-in { display: flex; gap: 48px; flex-wrap: wrap; }
+      .foot-col { min-width: 116px; }
+      .foot-in .foot-col:first-child { flex: 1 1 280px; }
+      .foot-col h5 { margin: 0 0 13px; font-size: 13.5px; color: var(--n-900); letter-spacing: 0.3px; }
+      .foot-col a { display: block; padding: 5px 0; font-size: 13.5px; color: var(--n-500); line-height: 1.65; }
+      .foot-copy { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--n-150); font-size: 13px; color: var(--n-400); line-height: 1.75; }
+      .foot-brand p { margin: 12px 0 0; font-size: 13.5px; color: var(--n-500); max-width: 340px; line-height: 1.75; }
+      .foot-brand .logo { gap: 10px; }
+
+      @media (max-width: 860px) {
+        .nav { display: none; }
+        .err-code { font-size: 72px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-head">
+      <div class="wrap head-in">
+        <a class="logo" href="index.html"><span class="logo-mark">AB</span>AgnesBuddy</a>
+        <nav class="nav">
+          <a href="index.html">首页</a>
+          <a href="features.html">功能介绍</a>
+          <a href="guide.html">使用说明</a>
+          <a href="updates.html">更新日志</a>
+          <a href="faq.html">常见问题</a>
+          <a href="terms.html">条款与声明</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="err-main">
+      <div class="wrap">
+        <div class="err-box">
+          <div class="err-code">404</div>
+          <h1 class="err-title">页面走丢了</h1>
+          <p class="err-text">你访问的地址不存在，或内容已经移动到了别处。返回首页继续，或看看下面的常用入口。</p>
+          <div class="err-actions">
+            <a class="btn btn-primary" href="index.html">返回首页</a>
+            <a class="btn btn-ghost" href="features.html">了解功能</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-foot">
+      <div class="wrap">
+        <div class="foot-in">
+          <div class="foot-col foot-brand">
+            <a class="logo" href="index.html"><span class="logo-mark">AB</span>AgnesBuddy</a>
+            <p>把 AI 对话、素材管理、短剧创作、无限画布与视频流水线收进一个桌面工作台。</p>
+          </div>
+          <div class="foot-col">
+            <h5>产品</h5>
+            <a href="features.html">功能介绍</a>
+            <a href="guide.html">使用说明</a>
+            <a href="updates.html">更新日志</a>
+          </div>
+          <div class="foot-col">
+            <h5>帮助</h5>
+            <a href="faq.html">常见问题</a>
+            <a href="terms.html">服务条款</a>
+            <a href="privacy.html">隐私政策</a>
+          </div>
+          <div class="foot-col">
+            <h5>法律</h5>
+            <a href="disclaimer.html">免责声明</a>
+            <a href="terms.html">服务条款</a>
+          </div>
+        </div>
+        <div class="foot-copy">健康第一</div>
+      </div>
+    </footer>
+  </body>
+</html>

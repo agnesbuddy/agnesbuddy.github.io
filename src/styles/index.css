@@ -627,6 +627,9 @@
     max-width: 340px;
     line-height: 1.75;
   }
+  .foot-brand .logo {
+    gap: 10px;
+  }
 }
 
 /* ============ ③ 动画 ============ */

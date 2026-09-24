@@ -21,7 +21,7 @@
     <line x1="196" y1="38" x2="196" y2="480" stroke="#c7d2fe" stroke-width="1"/>
     <!-- 品牌行 -->
     <rect x="18" y="55" width="26" height="26" rx="7" fill="url(#brandG)"/>
-    <text x="31" y="72" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">AG</text>
+    <text x="31" y="72" font-family="Segoe UI, PingFang SC, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">AB</text>
     <text x="53" y="73" font-family="Segoe UI, PingFang SC, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a">AgnesBuddy</text>
     <!-- 菜单项 -->
     <g font-family="Segoe UI, PingFang SC, sans-serif" font-size="12.5" fill="#334155">
