@@ -143,14 +143,20 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 7px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
     background: var(--brand);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
+    flex: none;
+    position: relative;
+  }
+  .logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 3px 4px;
+    background-color: #fff;
+    -webkit-mask: url(/ab-mark.svg) center / contain no-repeat;
+    mask: url(/ab-mark.svg) center / contain no-repeat;
   }
   .nav {
     display: flex;
@@ -638,9 +644,7 @@
     gap: 10px;
   }
 
-  .foot-brand .logo .logo-mark {
-    margin-right:10px;
-  }
+  /* 页脚 logo 与页头一致，间距由 .logo 的 gap 控制 */
 }
 
 /* ============ ③ 动画 ============ */

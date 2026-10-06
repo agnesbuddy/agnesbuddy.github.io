@@ -8,7 +8,7 @@ export default function SiteFooter() {
         <div className="foot-in">
           <div className="foot-col foot-brand">
             <a className="logo" href="index.html">
-              <span className="logo-mark">AB</span>
+              <span className="logo-mark" aria-hidden="true" />
               AgnesBuddy
             </a>
             <p>把 AI 对话、素材管理、短剧创作、无限画布与视频流水线收进一个桌面工作台。</p>
