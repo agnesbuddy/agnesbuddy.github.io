@@ -21,8 +21,9 @@ export const NAV: { href: string; text: string }[] = [
   { href: 'terms.html', text: '条款与声明' }
 ]
 
-/** 页脚分组（对应旧站 assets/site.js 的 FOOT） */
-export const FOOT: { title: string; links: { href: string; text: string }[] }[] = [
+/** 页脚分组（对应旧站 assets/site.js 的 FOOT）。
+ *  links 的 href 可选：带 href 渲染成 <a>，不带则渲染成纯文本（如联系方式）。 */
+export const FOOT: { title: string; links: { href?: string; text: string }[] }[] = [
   {
     title: '产品',
     links: [
@@ -44,6 +45,12 @@ export const FOOT: { title: string; links: { href: string; text: string }[] }[] 
     links: [
       { href: 'disclaimer.html', text: '免责声明' },
       { href: 'terms.html', text: '服务条款' }
+    ]
+  },
+  {
+    title: '联系我们',
+    links: [
+      { href: 'tel:18174306329', text: '手机 / 微信同号：18174306329' }
     ]
   }
 ]

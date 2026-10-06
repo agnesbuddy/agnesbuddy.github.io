@@ -17,11 +17,15 @@ export default function SiteFooter() {
           {FOOT.map((col) => (
             <div className="foot-col" key={col.title}>
               <h5>{col.title}</h5>
-              {col.links.map((l) => (
-                <a key={`${col.title}-${l.href}-${l.text}`} href={l.href}>
-                  {l.text}
-                </a>
-              ))}
+              {col.links.map((l) =>
+                l.href ? (
+                  <a key={`${col.title}-${l.href}-${l.text}`} href={l.href}>
+                    {l.text}
+                  </a>
+                ) : (
+                  <span key={`${col.title}-${l.text}`}>{l.text}</span>
+                )
+              )}
             </div>
           ))}
         </div>

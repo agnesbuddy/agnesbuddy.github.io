@@ -612,6 +612,13 @@
     padding-left: 3px;
     text-decoration: none;
   }
+  .foot-col span {
+    display: block;
+    padding: 5px 0;
+    font-size: 13.5px;
+    color: var(--n-500);
+    line-height: 1.65;
+  }
   .foot-copy {
     margin-top: 32px;
     padding-top: 20px;
