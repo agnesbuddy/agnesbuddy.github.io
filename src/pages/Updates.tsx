@@ -5,6 +5,22 @@ export default function Updates() {
       <div className="doc">
         <h2>更新日志</h2>
 
+        <h3>v0.2.13 · 2026-10-06</h3>
+        <ul>
+          <li><strong>短剧分镜补齐专业镜头语言</strong>：camera 此前生成了却没被用（成片机位乱跳），现分镜模板升级为景别词表 + 运镜词表 + 四条硬规则，worker 把 camera 真正拼进视频提示词，老分镜也能补机位；手改过的提示词仍按原文。</li>
+        </ul>
+
+        <h3>v0.2.12 · 2026-10-05</h3>
+        <ul>
+          <li><strong>修复画布上传「导入中…」永不消失</strong>：上传时 antd loading 不被画布 toast 的 success 替换而永久卡住；切到画布 toast 前先按 key 显式 destroy 同 key 的 antd loading/error，三处上传入口系统性修复。</li>
+          <li><strong>会话内移除 create_pipeline 工具</strong>：反向纠正此前误删 generate_video，改为保留 generate_video、从会话工具里移除 create_pipeline——长视频改由左侧「流水线」功能生成；&gt;12 秒或未给秒数的视频会话里只提示去流水线。</li>
+          <li><strong>画布「添加节点」弹层改为跟随主题</strong>：根节点写死的深色面板改为 .canvas-surface（var 背景/边框/文字），深浅主题自动可逆，删光 neutral/gray-100/bg-white 残留。</li>
+          <li><strong>资产库筛选条下拉改同款样式 + 日期单屏预设</strong>：4 个下拉复用 Widgets.Select 外观（圆角胶囊 + 阴影面板 + 青色对勾），日期由两个并排 date 框改为单个预设下拉（全部/今天/近7天/近30天/今年）。</li>
+          <li><strong>资产库「来源」补上「画布」</strong>：画布生图/生视频的 source 由 ai 改为 canvas，来源下拉新增「画布」选项，画布生成的图/视频不再混进「会话」（修复前已生成的旧资产仍归会话）。</li>
+          <li><strong>资产库新增「筛选条」</strong>：工具条下方新增来源/画幅/模型/日期范围筛选 + 重置 + 命中计数，与搜索框叠加生效，懒加载天然兼容。</li>
+          <li><strong>全功能测试三条高优 BUG</strong>：P1 流水线第 7 步分镜视频改 3 路并发（墙钟由求和降为取最大）；U0 次要文字对比度全站提到 ≥4.5:1（WCAG AA）；X1 数据库 WAL 747MB 主动 TRUNCATE 释放磁盘。</li>
+        </ul>
+
         <h3>v0.2.11 · 2026-10-04</h3>
         <ul>
           <li><strong>数据库控制台默认库名改用 agnes-2.db</strong>：与 App 实际落库一致，避免 App 因占用轮库后控制台读错库（新表、记录全对不上）。</li>
@@ -15,6 +31,14 @@ export default function Updates() {
           <li><strong>下线画布顶栏「批量生成」功能</strong>：10 轮回归里唯一反复出问题的功能——点了卡在「生成中 0/2」最长 10 分钟无进度无报错；彻底删除（按钮 / 调度逻辑 / 节点注册副作用一并清掉），剧集中心的批量生成未动。</li>
           <li><strong>画布自动适配封顶 1 倍、缩放下限提到 0.5</strong>：单节点不再被放大到巨大（避免重叠后连线静默失败）；0.2 倍下节点只剩色块无意义，下限提到 0.5 才看得清；手动缩放仍可到 2 倍。</li>
           <li><strong>AI 面板发送按钮禁用态加深</strong>：原禁用态对比度仅 1.72 / 2.43，淡到以为没按钮；改为 3.2 / 3.13 达图形件 3:1 门槛，仍明显比可用态淡、「能点 / 不能点」一眼分得出。</li>
+          <li><strong>生成受限时自动轮换下一个 Key 重试</strong>：生图 / 生视频 / 流水线遇到 429、5xx、503「视频队列已满」时自动换用 Key 池下一个 Key 重试，不再老用一个 Key。</li>
+          <li><strong>coding 沙箱默认注入 NODE_ENV=production</strong>：跑 npm/vite build 等构建默认落成生产模式，避免 React dev 构建体积翻倍、生产行为不一致；已显式设过则尊重原值。</li>
+          <li><strong>工具卡显示编辑 diff</strong>：写文件工具返回新增 / 删除行数，工具卡在操作名后渲染 +A -D 绿红徽标（JetBrains Mono），改动量一眼可见。</li>
+          <li><strong>chat2 浅色模式支持</strong>：wb-chat 亮色 token 设为默认、暗色整体移到 data-theme='dark' 覆盖，新增 diff 变量与工具卡执行中浅色流光。</li>
+          <li><strong>新增 AI 任务清单</strong>：移植 todo_write 协议，AI 可建任务清单逐步推进，前端连续快照原地覆盖、进行中那行走流光，避免叠多张卡。</li>
+          <li><strong>对话输入框右键菜单</strong>：主窗 / 日志窗 / 扩展日志窗按 isEditable、selectionText 弹中文系统右键菜单（撤销/重做/剪切/复制/粘贴/全选）。</li>
+          <li><strong>输入框草稿按会话隔离</strong>：草稿用 sid→草稿字典存储、渲染期比对 sid 切换，切会话 / 新建会话草稿互不干扰，不跨会话污染。</li>
+          <li><strong>修复浅色模式流光文字不可见</strong>：浅色补的 shimmer 规则用 background 简写覆盖了裁剪，导致白底隐形；两档色提成变量、两条规则只引用变量后修复。</li>
         </ul>
 
         <h3>v0.2.10 · 2026-10-03</h3>
