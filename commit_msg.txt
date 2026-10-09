@@ -1,7 +1,3 @@
-chore(官网): 初始化 AgnesBuddy 官网工程（Vite + React + Tailwind，多入口 MPA）
+更新官网更新日志：新增 v0.2.16(10-09) / v0.2.15(10-08) / v0.2.14(10-07) 三段，v0.2.13 段并入 10-06 共 21 条
 
-- 由 agnes-studio 的 server/agnesbuddy 纯静态站重构而来，8 个页面内容与文案逐字一致
-- 设计令牌沿用同一套色值（浅/深两套跟随系统），映射进 tailwind.config.js
-- 新增 .github/workflows/deploy.yml：push 到 main 自动构建并发布到 GitHub Pages
-- public/CNAME 固定 agnesbuddy.com，防止自定义域名被重置
-- 全站断点统一 860px，与原静态站逐像素对齐
+同步自 F:/agnesbuddy/CHANGELOG.md——本次共 62 条新条目（已同步过的「短剧分镜补齐专业镜头语言」未重复），脏池已整体清空。
